@@ -21,9 +21,6 @@ class App extends Component {
     }));
   };
 
-  // handleChange = e => {
-  //   this.setState({ [e.target.name]: e.target.value });
-  // };
   handleDelete = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
