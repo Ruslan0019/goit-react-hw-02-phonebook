@@ -21,9 +21,9 @@ class App extends Component {
     }));
   };
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  // handleChange = e => {
+  //   this.setState({ [e.target.name]: e.target.value });
+  // };
   handleDelete = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
@@ -45,7 +45,10 @@ class App extends Component {
         <ContactForm onFormSubmit={this.handleFormSubmit} />
 
         <h2>Contacts</h2>
-        <Filter filter={filter} onChange={this.handleChange} />
+        <Filter
+          filter={filter}
+          onChange={e => this.setState({ filter: e.target.value })}
+        />
         <ContactList
           contacts={this.filterContacts()}
           onDelete={this.handleDelete}
